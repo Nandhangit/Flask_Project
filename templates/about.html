@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% block connect %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Me</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        /* Container */
+        .about-container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Heading */
+        .about-container h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #243b44;
+        }
+
+        .about-container h1::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #243b44;
+            margin-top: 8px;
+            border-radius: 5px;
+        }
+
+        /* Paragraphs */
+        .about-container p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        /* Highlight box */
+        .highlight {
+            background: #f1f5f9;
+            padding: 20px;
+            border-left: 5px solid #243b44;
+            border-radius: 6px;
+            margin: 30px 0;
+        }
+
+        /* Skills list */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill {
+            background: #243b44;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Footer text */
+        .thanks {
+            margin-top: 30px;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        /* ===============================
+   PROFILE ACTION BUTTONS
+================================ */
+
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.profile-actions .btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Individual Button Colors */
+.linkedin {
+    background-color: #0077b5;
+}
+
+.github {
+    background-color: #24292e;
+}
+
+.gmail {
+    background-color: #d44638;
+}
+
+.resume {
+    background-color: #243b44;
+}
+
+/* Hover Effect */
+.profile-actions .btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <section class="about-container">
+        <h1>About Me</h1>
+
+        <div class="profile-actions">
+    <a href="https://www.linkedin.com/in/nandhans/" target="_blank" class="btn linkedin">
+        LinkedIn
+    </a>
+
+    <a href="https://github.com/Nandhangit/" target="_blank" class="btn github">
+        GitHub
+    </a>
+
+    <a href="mailto:snandhan825@gmail.com" class="btn gmail">
+        Gmail
+    </a>
+
+    <a href="{{url_for("static",filename = "pdf/Nandhan Resume.pdf")}}" download class="btn resume">
+
+        Download Resume
+    
+    </a>
+
+
+
+<br><br>
+
+        
+
+        <p>
+            I am <strong>Nandhan</strong>. I am from <strong>Namakkal.</strong> I have completed
+            my Bachelor’s degree in <strong>Commerce with Computer Applications</strong>
+            with <strong>75%</strong> from <strong>Government Arts College, affiliated with
+            Periyar University, Salem.</strong>
+        </p>
+
+        <div class="highlight">
+            <p>
+                I am a self-motivated person, a quick learner, and always eager to
+                apply my skills to real-world projects. I am passionate about
+                building applications and have a strong interest in becoming a
+                Python Full Stack Developer and Web Developer.
+            </p>
+        </div>
+
+        <p>
+            My technical skills include:
+        </p>
+
+        <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Django</span>
+            <span class="skill">Flask</span>
+            <span class="skill">React JS</span>
+
+
+        </div><br>
+
+        <p>
+            To enhance my skills, I have completed a <strong>Python</strong>
+            certification from <strong>GUVI</strong>.
+        </p>
+
+        <p>
+            Additionally, I have achieved <strong>Typewriting Higher Grade
+            Certification</strong> in <strong>both English and Tamil from Tamil Nadu
+            Technical Education.</strong>
+        </p>
+
+        <p>
+            My hobbies include reading books and listening to music.
+        </p>
+
+        <p>
+            My short-term goal is to grow as a Full Stack Developer, and my
+            long-term goal is to achieve a good position in a reputed company.
+          
+        </p>
+
+        <p class="thanks">
+            That’s all about me.  
+            <br><br>
+            
+        </p>
+    </section>
+
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block connect %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT DETAILS</title>
+    <style>
+
+        tr,td,th{
+
+            padding: 10px;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <h1> STUDENT MANAGEMENT SYSTEM </h1>
+    {{a}}
+
+    <table border="2px">
+        <tr>
+            <th>Student Name</th>
+            <th>Student Age</th>
+            <th>Student Address</th>
+        </tr>
+        {% for i in a %}
+        <tr>
+            <td>{{i.student_name}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.Address}}</td>
+        </tr>
+        {% endfor %}
+     
+        
+    </table>
+
+</body>
+{% endblock %}
+</html>

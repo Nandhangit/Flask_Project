@@ -1,0 +1,108 @@
+{% extends "base.html"%}
+{% block connect %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+
+<style>
+/* ===============================
+   CONTACT PAGE ONLY
+================================ */
+
+.contact-page {
+    max-width: 800px;
+    margin: 90px auto 40px;   /* top margin for fixed navbar */
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* Heading */
+.contact-page h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.contact-page p {
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Form */
+.contact-form {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+/* Labels */
+.contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Focus effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #243b44;
+}
+
+/* Button */
+.contact-form button {
+    background: #243b44;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #1b2e36;
+}
+</style>
+</head>
+
+<body>
+
+<!-- CONTACT CONTENT -->
+<div class="contact-page">
+    <h1>Contact Us</h1>
+   
+
+    <form class="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label for="message">Your Message</label>
+        <textarea id="message" rows="5" placeholder="Write your message"></textarea>
+
+        <button onclick="Popup()" type="submit">Send Message</button>
+    </form>
+</div>
+
+</body>
+<script src="{{url_for("static",filename = "js/example.js")}}"></script>
+{% endblock %}
+</html>
