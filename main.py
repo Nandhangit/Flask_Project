@@ -31,11 +31,8 @@ def createemp():
     
     return jsonify({"message" : "your data added successfully"})
     
-    
-
-
-
-
+def hello():
+    return "new change"
 
 
 
