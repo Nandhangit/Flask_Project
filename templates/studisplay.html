@@ -12,26 +12,36 @@
         tr,td,th{
 
             padding: 10px;
+            border: 4px solid lightcoral;
 
         }
-        
-    </style>
-</head>
-<body>
-    <h1> STUDENT MANAGEMENT SYSTEM </h1>
-    {{a}}
+    
 
-    <table border="2px">
+  
+    </style>
+    <link rel="stylesheet" href="{{url_for("static",filename= "css/style.css")}}">
+</head>
+<body >
+    <h1 class="one"> STUDENT MANAGEMENT SYSTEM </h1>
+    <!-- {{a}} -->
+
+    <table>
         <tr>
+            <th>Student ID</th>
             <th>Student Name</th>
             <th>Student Age</th>
             <th>Student Address</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
         </tr>
         {% for i in a %}
         <tr>
+            <td>{{i.id}}</td>
             <td>{{i.student_name}}</td>
             <td>{{i.Age}}</td>
             <td>{{i.Address}}</td>
+            <td><button class="btn btn-success"><a href="{{url_for("updateStudent", id = i.id)}}">Update</a></td></button>
+            <td><button class="btn btn-success"><a href="{{url_for("deleteStudent", id = i.id)}}">Delete</a></button></td>
         </tr>
         {% endfor %}
      

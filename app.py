@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for
+from flask import Flask,render_template,url_for,request,redirect
 from flask_mysqldb import MySQL
 
 
@@ -57,11 +57,59 @@ def displaystudents():
     con.execute(sql)
     res =con.fetchall()
     
-    
-    
     return render_template("studisplay.html",a =res)
 
+@app.route("/addstudent", methods = ["GET","POST"])
+def addstudent():
+    con= mysql.connection.cursor()
+    if  request.method == "POST":
+        stu_name = request.form["stu_name"]
+        age = request.form["age"]
+        address = request.form["address"]
+        
+        sql = "insert into  student_details (student_name,Age,Address) values (%s,%s,%s)"
+        
+        con.execute(sql,[stu_name,age,address])
+        
+        mysql.connection.commit()
+        con.close()
+        return redirect(url_for("displaystudents"))
+    
+    return render_template("addstudent.html")
+
+@app.route("/updateStudent/<int:id>", methods = ["GET","POST"])
+def updateStudent(id):
+    con = mysql.connection.cursor()
+    if request.method == "POST":
+        stu_name = request.form["stu_name"]
+        age = request.form ["age"]
+        address = request.form["address"]
+        
+        sql = "update student_details set student_name = %s, Age = %s, Address = %s where id= %s"
+        con.execute(sql,[stu_name,age,address,id])
+        mysql.connection.commit()
+        return redirect(url_for("displaystudents"))
+    
+    sql = "SELECT * FROM STUDENT_DETAILS WHERE ID = %s"
+    con.execute(sql,[id])
+    res = con.fetchone()
+    
+    return render_template("updatestudent.html",a = res)
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.route("/deleteStudent/<int:id>")
+def deleteStudent(id):
+    
+    con = mysql.connection.cursor()
+    
+    sql = "delete from student_details where id = %s"
+    
+    con.execute(sql,[id])
+    mysql.connection.commit()
+    return redirect(url_for("displaystudents"))
+
+
+
+
+# if __name__ == "__main__":
+#     app.run(debug=True)

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block connect %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addstudent</title>
+    <link rel="stylesheet" href="{{ url_for("static",filename = "css/style.css") }}">
+</head>
+<body>
+    <h1 class="one">STUDENT ADDING PAGE</h1>
+    <form action="" method="POST">
+        <div>
+        <label for="name">STUDENT NAME :
+            <input type="text" id="name" name="stu_name" value ="{{a.student_name}}"  placeholder="ENTER YOUR NAME" required>
+        </label>
+        </div>
+        <br><br>
+        <div>
+        <label for="age">STUDENT AGE :
+            <input type="number" name="age" id="age" value = "{{a.Age}}"  placeholder="ENTER YOUR AGE" required>
+        </label>
+        </div>
+        <br> <br>
+
+        <div>
+        <label for="address">STUDENT ADDRESS :
+            <input type="text" name="address" id="address"  value = "{{a.Address}}" placeholder="ENTER YOUR ADDRESS" required>
+        </label>
+        </div>
+        <br> <br>
+        <!-- <a href=""> <button class="btn- btn primary">SUBMIT</button></a> -->
+        <button onclick="addstudent()" type="Submit" class="btn btn-primary">SUBMIT</button>
+
+    </form>
+</body>
+
+<script src="{{url_for("static",filename = "js/example.js")}}"></script>
+
+{% endblock %}
+</html>
